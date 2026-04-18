@@ -74,7 +74,7 @@ def output_images(
     cols = 3
     fig, axes = plt.subplots(rows, cols, figsize=(12, 12))
     row_count = 0
-    original_titles = ["Clear Object", "Noisy Object", "Pibble"]
+    original_titles = ["Clear object", "Noisy object", "Pibble"]
     for idx, (img_rgb, orig) in enumerate(
         [
             (img1_rgb, image1),
@@ -92,10 +92,10 @@ def output_images(
         axes[idx, 0].set_title(original_titles[row_count])
         row_count += 1
         axes[idx, 1].imshow(prewitt_rgb)
-        axes[idx, 1].set_title("Prewitt")
+        axes[idx, 1].set_title("Prewitt outlines")
 
         axes[idx, 2].imshow(canny_rgb)
-        axes[idx, 2].set_title("Canny")
+        axes[idx, 2].set_title("Canny outlines")
 
     for ax in axes.flat:
         ax.axis("off")
