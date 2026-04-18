@@ -54,12 +54,11 @@ def Prewitt_outline(image):
 
 
 def Canny_outline(image):
-
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    removed_noise = cv2.GaussianBlur(gray, (5, 5), sigmaX=1.4, sigmaY=1.4)
     edges = cv2.Canny(
-        gray, threshold1=40, threshold2=120, apertureSize=3, L2gradient=False
+        removed_noise, threshold1=40, threshold2=120, apertureSize=3, L2gradient=False
     )
-
     return cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
 
 
