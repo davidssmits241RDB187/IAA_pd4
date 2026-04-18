@@ -73,7 +73,8 @@ def output_images(
     rows = 3
     cols = 3
     fig, axes = plt.subplots(rows, cols, figsize=(12, 12))
-
+    row_count = 0
+    original_titles = ["Clear Object", "Noisy Object", "Pibble"]
     for idx, (img_rgb, orig) in enumerate(
         [
             (img1_rgb, image1),
@@ -88,8 +89,8 @@ def output_images(
         canny_rgb = cv2.cvtColor(canny, cv2.COLOR_BGR2RGB)
 
         axes[idx, 0].imshow(img_rgb)
-        axes[idx, 0].set_title("Original")
-
+        axes[idx, 0].set_title(original_titles[row_count])
+        row_count += 1
         axes[idx, 1].imshow(prewitt_rgb)
         axes[idx, 1].set_title("Prewitt")
 
