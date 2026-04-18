@@ -57,7 +57,7 @@ def Canny_outline(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     removed_noise = cv2.GaussianBlur(gray, (5, 5), sigmaX=2, sigmaY=2)
     edges = cv2.Canny(
-        removed_noise, threshold1=50, threshold2=150, apertureSize=3, L2gradient=False
+        removed_noise, threshold1=50, threshold2=150, apertureSize=3, L2gradient=True
     )
     return cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
 
